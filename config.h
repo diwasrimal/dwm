@@ -4,6 +4,7 @@
 
 /* appearance */
 static const unsigned int borderpx = 1;        /* border pixel of windows */
+static const Gap default_gap       = {.isgap = 1, .realgap = 4, .gappx = 4};
 static const unsigned int snap     = 32;       /* snap pixel */
 static const int showbar           = 1;        /* 0 means no bar */
 static const int topbar            = 1;        /* 0 means bottom bar */
@@ -87,6 +88,10 @@ static const Key keys[] = {
 	{ MODKEY,                 XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,       XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,       XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                 XK_minus,  setgaps,        {.i = -5 } },
+	{ MODKEY,                 XK_equal,  setgaps,        {.i = +5 } },
+	{ MODKEY|ShiftMask,       XK_minus,  setgaps,        {.i = GAP_RESET } },
+	{ MODKEY|ShiftMask,       XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
 	{ MODKEY,                 XK_Print,  spawn,          SHCMD("screenshot -s") },
 	{ 0,                      XK_Print,  spawn,          SHCMD("screenshot") },
 	{ MODKEY,                 XK_e,      spawn,          SHCMD("ucopy") },
