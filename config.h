@@ -29,13 +29,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class      instance  title           tags mask  isfloating  monitor */
+	{ "Gimp",     NULL,     NULL,           0,         1,         -1 },
+	{ "firefox",  NULL,     NULL,           1 << 0,    0,         -1 },
+	{ "firefox",  NULL,     "Library",      1 << 0,    1,         -1 },
+	{ "Alacritty",NULL,     NULL,           0,         0,         -1 },
+	{ "Thunar",   NULL,     NULL,           1 << 3,    0,         -1 },
+	{ "obs",      NULL,     NULL,           1 << 6,    0,         -1 },
+	{ "obs",      NULL,     "Settings",     1 << 6,    1,         -1 },
+	{ "vlc",      NULL,     NULL,           1 << 7,    0,         -1 },
+	{ "mpv",      NULL,     NULL,           0,         1,         -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
