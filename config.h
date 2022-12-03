@@ -1,7 +1,5 @@
 /* See LICENSE file for copyright and license details. */
 
-#include <X11/XF86keysym.h>
-
 /* appearance */
 static const unsigned int borderpx = 1;        /* border pixel of windows */
 static const Gap default_gap       = {.isgap = 1, .realgap = 4, .gappx = 4};
@@ -68,14 +66,12 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 /* Keybindings */
 static const Key keys[] = {
 	/* modifier               key        function        argument */
-	{ MODKEY,                 XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,        	        XK_Return, spawn,          {.v = termcmd } },
+	// { MODKEY,        	        XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,       XK_b,      togglebar,      {0} },
 	{ MODKEY,                 XK_l,      focusstack,     {.i = +1 } },
 	{ MODKEY,                 XK_h,      focusstack,     {.i = -1 } },
@@ -101,9 +97,6 @@ static const Key keys[] = {
 	{ MODKEY,                 XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,       XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,       XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
-	{ MODKEY,                 XK_Print,  spawn,          SHCMD("screenshot -s") },
-	{ 0,                      XK_Print,  spawn,          SHCMD("screenshot") },
-	{ MODKEY,                 XK_e,      spawn,          SHCMD("ucopy") },
 	TAGKEYS(                  XK_1,                      0)
 	TAGKEYS(                  XK_2,                      1)
 	TAGKEYS(                  XK_3,                      2)
@@ -114,16 +107,6 @@ static const Key keys[] = {
 	TAGKEYS(                  XK_8,                      7)
 	TAGKEYS(                  XK_9,                      8)
 	{ MODKEY|ShiftMask,       XK_q,      quit,           {0} },
-
-  /* Media Keys */
-	/*      key                              function              argument   */
-	{ 0, XF86XK_AudioMute,		                 spawn,		       SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,     	       spawn,		       SHCMD("pamixer --allow-boost -i 3; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,	             spawn,		       SHCMD("pamixer --allow-boost -d 3; kill -44 $(pidof dwmblocks)") },
-
-  { 0, XF86XK_MonBrightnessUp,               spawn,	       	{.v = (const char*[]){ "light", "-A", "10", NULL } } },
-  { 0, XF86XK_MonBrightnessDown,             spawn,	       	{.v = (const char*[]){ "light", "-U", "10", NULL } } },
-  { 0, XF86XK_TouchpadToggle,                spawn,	       	{.v = (const char*[]){ "touchpad-toggle.sh", NULL } } },
 };
 
 /* button definitions */
