@@ -39,3 +39,6 @@ exec dwm
 ## Configuration
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+I am using `sxhkd` instead of dwm to manage my keybindings. 
+You can have a look at my [dotfiles](https://github.com/diwasrimal/dotfiles.git) 
