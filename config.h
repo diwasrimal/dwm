@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+/* Colorscheme */
+#include "colorschemes/gruvbox.h"
+
 /* appearance */
 static const unsigned int borderpx = 1;        /* border pixel of windows */
 static const Gap default_gap       = {.isgap = 1, .realgap = 4, .gappx = 4};
@@ -7,18 +10,8 @@ static const unsigned int snap     = 32;       /* snap pixel */
 static const int showbar           = 1;        /* 0 means no bar */
 static const int topbar            = 1;        /* 0 means bottom bar */
 static const int swallowfloating   = 0;        /* 1 means swallow floating windows by default */
-static const char *fonts[]         = { "Fira Code Nerd Font:size=9:antialias=true", "NotoColorEmoji:size=8:antialias=true" };
-static const char dmenufont[]      = "Fira Code Nerd Font:size=9:antialias=true";
-static const char base[]           = "#1e1e2e";
-static const char red[]            = "#f38ba8";
-static const char rosewater[]      = "#f5e0dc";
-static const char mantle[]         = "#181825";
-static const char maroon[]         = "#eba0ac";
-static const char *colors[][3]     = {
-	                      /* fg        bg      border */
-	[SchemeNorm]       = { rosewater,  base,   mantle   },
-	[SchemeSel]        = { base,       maroon, maroon },
-};
+static const char *fonts[]         = { "JetBrainsMono Nerd Font:size=9:antialias=true", "NotoColorEmoji:size=8:antialias=true" };
+static const char dmenufont[]      = "JetBrainsMono Nerd Font:size=9:antialias=true";
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
