@@ -27,16 +27,19 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance  title           tags mask  isfloating  monitor */
-	{ "Gimp",     NULL,     NULL,           0,         1,         -1 },
-	{ "firefox",  NULL,     NULL,           1 << 0,    0,         -1 },
-	{ "firefox",  NULL,     "Library",      1 << 0,    1,         -1 },
-	{ "Alacritty",NULL,     NULL,           0,         0,         -1 },
-	{ "Thunar",   NULL,     NULL,           1 << 3,    0,         -1 },
-	{ "obs",      NULL,     NULL,           1 << 6,    0,         -1 },
-	{ "obs",      NULL,     "Settings",     1 << 6,    1,         -1 },
-	{ "vlc",      NULL,     NULL,           1 << 7,    0,         -1 },
-	{ "mpv",      NULL,     NULL,           0,         1,         -1 },
+	/* class      instance  title                      tags mask  isfloating  monitor */
+	{ "Gimp",     NULL,     NULL,                      0,         0,         -1 },
+	{ "firefox",  NULL,     NULL,                      1 << 0,    0,         -1 },
+	{ "firefox",  NULL,     "Library",                 1 << 0,    1,         -1 },
+	{ "Alacritty",NULL,     NULL,                      0,         0,         -1 },
+	{ "Thunar",   NULL,     NULL,                      1 << 3,    0,         -1 },
+	{ "obs",      NULL,     NULL,                      1 << 6,    0,         -1 },
+	{ "obs",      NULL,     "Settings",                1 << 6,    1,         -1 },
+	{ "vlc",      NULL,     NULL,                      1 << 7,    0,         -1 },
+	{ "mpv",      NULL,     NULL,                      0,         1,         -1 },
+	{ "torrent",  NULL,     NULL,                      1 << 8,    0,         -1 },
+	{ "Thunar",   NULL,     "File Operation Progress", 1 << 3,    1,         -1 },
+	{ NULL,       NULL,     "Event Tester",            0,         0,         -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -64,12 +67,14 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 /* Keybindings */
 static const Key keys[] = {
 	/* modifier               key        function        argument */
-	// { MODKEY,        	        XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                 XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,        	        XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,       XK_b,      togglebar,      {0} },
 	{ MODKEY,                 XK_l,      focusstack,     {.i = +1 } },
 	{ MODKEY,                 XK_h,      focusstack,     {.i = -1 } },
@@ -95,6 +100,7 @@ static const Key keys[] = {
 	{ MODKEY,                 XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,       XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,       XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
+	{ MODKEY|ShiftMask,       XK_q,      quit,           {0} },
 	TAGKEYS(                  XK_1,                      0)
 	TAGKEYS(                  XK_2,                      1)
 	TAGKEYS(                  XK_3,                      2)
@@ -104,7 +110,6 @@ static const Key keys[] = {
 	TAGKEYS(                  XK_7,                      6)
 	TAGKEYS(                  XK_8,                      7)
 	TAGKEYS(                  XK_9,                      8)
-	{ MODKEY|ShiftMask,       XK_q,      quit,           {0} },
 };
 
 /* button definitions */
