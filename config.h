@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Colorscheme */
-#include "colorschemes/gruvbox.h"
+#include "colorschemes/dracula.h"
 
 /* appearance */
 static const unsigned int borderpx = 1;        /* border pixel of windows */
