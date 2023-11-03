@@ -21,22 +21,21 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance  title                      tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "firefox",  NULL,     NULL,                      1 << 0,    0,          0,         -1,        -1 },
-	{ "firefox",  NULL,     "Library",                 1 << 0,    1,          0,         -1         -1 },
-	{ "Pcmanfm",  NULL,     NULL,                      1 << 3,    0,          0,         -1,        -1 },
-	{ "Thunar",   NULL,     NULL,                      1 << 3,    0,          0,         -1,        -1 },
-	{ "Thunar",   NULL,     "File Operation Progress", 1 << 3,    1,          0,         -1,        -1 },
-	{ "Gimp",     NULL,     NULL,                      1 << 4,    0,          0,          0,        -1 },
-	{ "obs",      NULL,     NULL,                      1 << 6,    0,          0,         -1,        -1 },
-	{ "obs",      NULL,     "Settings",                1 << 6,    1,          0,         -1,        -1 },
-	{ "vlc",      NULL,     NULL,                      1 << 7,    0,          0,         -1,        -1 },
-	{ "torrent",  NULL,     NULL,                      1 << 8,    0,          0,         -1,        -1 },
-	{ "Alacritty",NULL,     NULL,                      0,         0,          1,          0,        -1 },
-	{ "mpv",      NULL,     NULL,                      0,         1,          0,          0,        -1 },
-	{ "Arandr",   NULL,     NULL,                      0,         1,          0,          0,        -1 },
-	{ "Xephyr",   NULL,     NULL,                      0,         1,          0,         -1,        -1 },
-	{ NULL,       NULL,     "Event Tester",            0,         0,          0,         -1,        -1 }, /* xev */
+	/* class      instance  title                      tags mask  isfloating  monitor */
+	{ "firefox",  NULL,     NULL,                      1 << 0,    0,         -1 },
+	{ "firefox",  NULL,     "Library",                 1 << 0,    1,         -1 },
+	{ "Pcmanfm",  NULL,     NULL,                      1 << 3,    0,         -1 },
+	{ "Thunar",   NULL,     NULL,                      1 << 3,    0,         -1 },
+	{ "Thunar",   NULL,     "File Operation Progress", 1 << 3,    1,         -1 },
+	{ "Gimp",     NULL,     NULL,                      1 << 4,    0,         -1 },
+	{ "obs",      NULL,     NULL,                      1 << 6,    0,         -1 },
+	{ "obs",      NULL,     "Settings",                1 << 6,    1,         -1 },
+	{ "vlc",      NULL,     NULL,                      1 << 7,    0,         -1 },
+	{ "torrent",  NULL,     NULL,                      1 << 8,    0,         -1 },
+	{ "Alacritty",NULL,     NULL,                      0,         0,         -1 },
+	{ "mpv",      NULL,     NULL,                      0,         1,         -1 },
+	{ "Arandr",   NULL,     NULL,                      0,         1,         -1 },
+	{ "Xephyr",   NULL,     NULL,                      0,         1,         -1 },
 };
 
 /* layout(s) */
